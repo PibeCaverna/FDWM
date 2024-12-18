@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include "colors.h"
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -16,11 +16,9 @@ static const char dmenufont[]       = "monospace:size=12";
 //static const char col_cyan[]        = "#005577";
 
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-//	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 }
-//	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  }
-	[SchemeNorm] = { light0, dark0_hard, faded_green },
-	[SchemeSel]  = { light0_hard, faded_green,  bright_orange  },
+	/*               fg           bg            border   */
+	[SchemeNorm] = { light0_hard, dark0_hard,   faded_green   },
+	[SchemeSel]  = { light0_hard, faded_green,  bright_green  },
 };
 
 /* tagging */
@@ -62,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dark0, "-nf", light0, "-sb", bright_orange, "-sf", light0_hard, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dark0_hard, "-nf", light0_hard, "-sb", faded_green, "-sf", light0_hard, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *upbrightness[]   = { "xbacklight", "-inc", "10", NULL };
 static const char *downbrightness[] = { "xbacklight", "-dec", "10", NULL };

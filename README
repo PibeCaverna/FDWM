@@ -52,4 +52,5 @@ Patches
 -------
 fakefullscreen
 backlight
-dullgaps
+fullgaps
+barpadding

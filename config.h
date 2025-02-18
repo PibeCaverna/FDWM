@@ -1,15 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 #include "colors.h"
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 5;       /* vertical padding of bar */
 static const int sidepad            = 5;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Hack Nerd Font Regular:pixelsize=20" };
-static const char dmenufont[]       = "Hack Nerd Font Regular:pixelsize=20";
+static const char *fonts[]          = { "Hack Nerd Font Regular:pixelsize=18" };
+static const char dmenufont[]       = "Hack Nerd Font Regular:pixelsize=18";
 
 //Commented out in case I still need it
 //static const char col_gray1[]       = "#222222";
@@ -21,7 +21,7 @@ static const char dmenufont[]       = "Hack Nerd Font Regular:pixelsize=20";
 static const char *colors[][3]      = {
 	/*               fg           bg            border   */
 	[SchemeNorm] = { light0_hard, dark0_hard,   faded_green   },
-	[SchemeSel]  = { light0_hard, faded_green,  bright_green  },
+	[SchemeSel]  = { bright_green,dark0_hard,   bright_green  },
 };
 
 /* tagging */
@@ -34,7 +34,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Brave",    NULL,       NULL,       0 << 1,       0,           -1 },
+  { "st",       NULL,       NULL,       0 << 0,       0,           -1 },
 };
 
 /* layout(s) */
@@ -45,9 +46,9 @@ static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "tile ",      tile },    /* first entry is default */
+	{ "float",      NULL },    /* no layout function means floating behavior */
+	{ "mono ",      monocle },
 };
 
 /* key definitions */

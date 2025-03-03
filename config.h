@@ -65,7 +65,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dark0_hard, "-nf", light0_hard, "-sb", faded_green, "-sf", light0_hard, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "-t", "Terminal", "-e", "tmux", "new", "-A", "-s", "general", NULL };
 static const char *upbrightness[]   = { "xbacklight", "-inc", "10", NULL };
 static const char *downbrightness[] = { "xbacklight", "-dec", "10", NULL };
 

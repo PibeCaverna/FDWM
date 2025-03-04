@@ -84,6 +84,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
+  { Mod1Mask,                     XK_F4,     killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -107,7 +108,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_F4,      quit,           {0} },
 	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = upbrightness } },
 	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = downbrightness } },
 	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },

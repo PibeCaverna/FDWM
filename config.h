@@ -68,7 +68,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", "-t", "Terminal", "-e", "tmux", "new", "-A", "-s", "general", NULL };
 static const char *upbrightness[]   = { "xbacklight", "-inc", "10", NULL };
 static const char *downbrightness[] = { "xbacklight", "-dec", "10", NULL };
-
+static const char *upvol[]      = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%+",      NULL }; //volume up
+static const char *downvol[]    = { "/usr/bin/wpctl",   "set-volume", "@DEFAULT_AUDIO_SINK@",      "5%-",      NULL }; //volume down
+static const char *mutevol[]    = { "/usr/bin/wpctl",   "set-mute",   "@DEFAULT_AUDIO_SINK@",      "toggle",   NULL }; //mute
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -82,7 +84,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ Mod1Mask,                     XK_F4,     killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -109,6 +110,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_F4,      quit,           {0} },
 	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = upbrightness } },
 	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = downbrightness } },
+	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
+	{ 0,                       XF86XK_AudioMute,        spawn, {.v = mutevol } },
+	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
 };
 
 /* button definitions */
